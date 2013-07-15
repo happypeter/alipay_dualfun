@@ -7,8 +7,8 @@ Gem::Specification.new do |gem|
   gem.version       = "0.0"
   gem.authors       = ["happypeter"]
   gem.email         = ["happypeter1983@gmail.com"]
-  gem.description   = %q{This gem can help you integrate Alipay to your application.}
-  gem.summary       = %q{A simple payment library for alipay dual function payment gateways}
+  gem.description   = %q{This gem can help you integrate Alipay Dual-function Payment.}
+  gem.summary       = %q{Ruby library for alipay dual function payment gateways}
   gem.homepage      = "https://github.com/happypeter/alipay_dualfun"
 
   gem.files         = `git ls-files`.split($/)

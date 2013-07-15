@@ -116,12 +116,7 @@ module AlipayDualfun
       self
     end
 
-    def total_fee(fee)
-      @attributes[:total_fee] = fee
-
-      self
-    end
-
+    #收银台页面上,商品展示的超链接。
     def product_url(url)
       @attributes[:show_url] = url
       self
