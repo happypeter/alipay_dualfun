@@ -102,12 +102,10 @@ module AlipayDualfun
       self
     end
 
-    def logistics_and_price_settings
-      @attributes[:logistics_type] = 'POST'
-      @attributes[:logistics_payment] = 'BUYER_PAY'
-      @attributes[:logistics_fee] = '10'
-      @attributes[:price] = '0.1'
-      @attributes[:quantity] = '2'
+
+    def set_price_and_quantity(price, quantity)
+      @attributes[:price] = price
+      @attributes[:quantity] = quantity
       self
     end
 
@@ -122,9 +120,25 @@ module AlipayDualfun
       self
     end
 
+    def set_logistics(type, payment, fee)
+      @attributes[:logistics_type] = type
+      @attributes[:logistics_payment] = payment
+      @attributes[:logistics_fee] = fee
+      self
+    end
+
+    # set to 0, for virtaul goods with no delivery
+    def no_logistics
+      @attributes[:logistics_type] = 'POST'
+      @attributes[:logistics_payment] = 'BUYER_PAY'
+      @attributes[:logistics_fee] = '0'
+      self
+    end
+
     def dualfun_pay
       Product::DualfunPay.new(self)
     end
+
   end
 
   class Merchant
