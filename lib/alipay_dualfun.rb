@@ -18,7 +18,6 @@ module AlipayDualfun
         :logistics_type, :logistics_fee, :logistics_payment,
         :price, :quantity
       ]
-
     end
 
     class DualfunPay < Base
@@ -27,7 +26,6 @@ module AlipayDualfun
 
       def initialize(order)
         @order = order
-
         @params = {}
       end
 
@@ -68,6 +66,7 @@ module AlipayDualfun
       end
 
       private
+
       def sign_params
         params = @order.attributes.merge(@params)
         params[:service] = SERVICE_LABEL
@@ -85,7 +84,6 @@ module AlipayDualfun
 
   class Order
     PAYMENT_TYPE_BUYING = 1
-    PAYMENT_TYPE_DONATION = 4
 
     attr_accessor :merchant
     attr_reader :attributes
@@ -126,11 +124,6 @@ module AlipayDualfun
 
     def product_url(url)
       @attributes[:show_url] = url
-      self
-    end
-
-    def as_donation
-      @attributes[:payment_type] = PAYMENT_TYPE_DONATION
       self
     end
 
