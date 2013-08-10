@@ -2,7 +2,11 @@
 
 A ruby gem.
 
-## 安装方法
+## Demo
+
+http://alidemo.happycasts.net/
+
+## Install
 
 Add this line to your application's Gemfile:
 
