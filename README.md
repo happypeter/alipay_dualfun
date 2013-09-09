@@ -36,11 +36,11 @@ Generate payment url
       :seller_email      => 'SELLER_EMAIL',
       :price             => '10.00',
       :quantity          => 12,
-      :return_url        => 'YOUR_ORDER_RETURN_URL',
-      :notify_url        => 'YOUR_ORDER_NOTIFY_URL'
+      :return_url        => 'YOUR_ORDER_RETURN_URL', # 可选项
+      :notify_url        => 'YOUR_ORDER_NOTIFY_URL'  # 可选项
     }
 
     Alipay.trade_create_by_buyer_url(options)     # 标准双接口
     # => 'https://mapi.alipay.com/gateway.do?out_trade_no=...'
 
-以上是 Gem 要求的必填项，缺一不可。用户还可以根据自身特定需求添加可选项，具体可以参考支付宝官方资料包中的 pdf 文件。
+以上除了标注`可选项`的内容之外，其他选项都是 Gem 要求的必填项，缺一不可。用户还可以根据自身特定需求添加可选项，具体可以参考支付宝官方资料包中的 pdf 文件。
