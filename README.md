@@ -36,7 +36,6 @@ Generate payment url
       :seller_email      => 'SELLER_EMAIL',
       :price             => '10.00',
       :quantity          => 12,
-      :discount          => '20.00'
       :return_url        => 'YOUR_ORDER_RETURN_URL',
       :notify_url        => 'YOUR_ORDER_NOTIFY_URL'
     }
@@ -44,6 +43,4 @@ Generate payment url
     Alipay.trade_create_by_buyer_url(options)     # 标准双接口
     # => 'https://mapi.alipay.com/gateway.do?out_trade_no=...'
 
-You can redirect user to this payment url, and user will see a payment page
-for his/her order.
-
+以上是 Gem 要求的必填项，缺一不可。用户还可以根据自身特定需求添加可选项，具体可以参考支付宝官方资料包中的 pdf 文件。
