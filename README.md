@@ -30,10 +30,11 @@ And then execute:
 Generate payment url
 
     options = {
-      :out_trade_no      => 'YOUR_ORDER_ID',         # 20130801000001
-      :subject           => 'YOUR_ORDER_SUBJECCT', 
       :partner           => 'PID',
       :seller_email      => 'SELLER_EMAIL',
+      :key               => 'SECRET',
+      :out_trade_no      => 'YOUR_ORDER_ID',         # 20130801000001
+      :subject           => 'YOUR_ORDER_SUBJECCT', 
       :price             => '10.00',
       :quantity          => 12,
       :return_url        => 'YOUR_ORDER_RETURN_URL', # 可选项
