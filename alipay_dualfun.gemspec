@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |gem|
   gem.name          = "alipay_dualfun"
-  gem.version       = "0.2"
+  gem.version       = "0.3"
   gem.authors       = ["happypeter"]
   gem.email         = ["happypeter1983@gmail.com"]
   gem.description   = %q{This gem can help you integrate Alipay Dual-function Payment.}
