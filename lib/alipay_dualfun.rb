@@ -18,6 +18,7 @@ module AlipayDualfun
     }.merge(stringify_keys(options))
 
     @secret_key = options['key']
+    @partner = options['partner']
     options.delete('key')
 
     check_required_options(options, trade_create_by_buyer_required_options)
@@ -50,5 +51,23 @@ module AlipayDualfun
        "#{key}=#{value}"
      end.join('&')
      Digest::MD5.hexdigest("#{query}#{@secret_key}")
+   end
+
+
+   def self.verify_sign?(params)
+     params = stringify_keys(params)
+     params.delete('sign_type')
+     sign = params.delete('sign')
+
+     generate_sign(params) == sign
+   end
+
+   def self.notify_verify?(params)
+     if verify_sign?(params)
+       params = stringify_keys(params)
+       open("https://mapi.alipay.com/gateway.do?service=notify_verify&partner=#{@partner}&notify_id=#{CGI.escape params['notify_id'].to_s}").read == 'true'
+     else
+       false
+     end
    end
 end
