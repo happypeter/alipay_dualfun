@@ -23,8 +23,8 @@ And then execute:
 
 ### Thanks
 
-- <https://github.com/chloerei/alipay>
-- <https://github.com/daqing/china_pay>
+- <https://github.com/chloerei/alipay> lots of code token from here
+- <https://github.com/daqing/china_pay> for the initial idea
 
 
 Generate payment url
@@ -45,3 +45,14 @@ Generate payment url
     # => 'https://mapi.alipay.com/gateway.do?out_trade_no=...'
 
 以上除了标注`可选项`的内容之外，其他选项都是 Gem 要求的必填项，缺一不可。用户还可以根据自身特定需求添加可选项，具体可以参考支付宝官方资料包中的 pdf 文件。
+
+Send Goods
+
+    options = {
+      :partner           => 'PID',
+      :trade_no          => 'TRADE_NO',
+      :logistics_name    => 'haoqicat course'
+    }
+
+    Alipay::Service.send_goods_confirm_by_platform(options)
+    # => '<!xml version="1.0" encoding="utf-8"?><alipay><is_success>T</is_success></alipay>'

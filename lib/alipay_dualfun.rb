@@ -4,10 +4,10 @@ require 'open-uri'
 require 'digest/md5'
 
 module AlipayDualfun
+  GATEWAY_URL = 'https://mapi.alipay.com/gateway.do'
 
+  TRADE_CREATE_BY_BUYER_REQUIRED_OPTIONS = %w( service partner _input_charset out_trade_no subject payment_type logistics_type logistics_fee logistics_payment seller_email price quantity )
   def self.trade_create_by_buyer_url(options = {})
-    gateway_url = 'https://mapi.alipay.com/gateway.do'
-    trade_create_by_buyer_required_options = %w( service partner _input_charset out_trade_no subject payment_type logistics_type logistics_fee logistics_payment seller_email price quantity )
     options = {
       'service'        => 'trade_create_by_buyer',
       '_input_charset' => 'utf-8',
@@ -21,9 +21,9 @@ module AlipayDualfun
     @partner = options['partner']
     options.delete('key')
 
-    check_required_options(options, trade_create_by_buyer_required_options)
+    check_required_options(options, TRADE_CREATE_BY_BUYER_REQUIRED_OPTIONS)
 
-    "#{gateway_url}?#{query_string(options)}"
+    "#{GATEWAY_URL}?#{query_string(options)}"
   end
 
   def self.check_required_options(options, names)
@@ -69,5 +69,17 @@ module AlipayDualfun
      else
        false
      end
+   end
+
+   SEND_GOODS_CONFIRM_BY_PLATFORM_REQUIRED_OPTIONS = %w( service partner _input_charset trade_no logistics_name )
+   def self.send_goods_confirm_by_platform(options)
+     options = {
+       'service'        => 'send_goods_confirm_by_platform',
+       'transport_type' => 'DIRECT',
+       '_input_charset' => 'utf-8'
+     }.merge(stringify_keys(options))
+
+     check_required_options(options, SEND_GOODS_CONFIRM_BY_PLATFORM_REQUIRED_OPTIONS)
+     open("#{GATEWAY_URL}?#{query_string(options)}").read
    end
 end
