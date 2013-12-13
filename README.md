@@ -27,7 +27,7 @@ And then execute:
 - <https://github.com/daqing/china_pay> for the initial idea
 
 
-Generate payment url
+### Generate payment url
 
     options = {
       :partner           => 'PID',
@@ -46,7 +46,7 @@ Generate payment url
 
 NOTE: 以上除了标注`可选项`的内容之外，其他选项都是 Gem 要求的必填项，缺一不可。用户还可以根据自身特定需求添加可选项，具体可以参考支付宝官方资料包中的 pdf 文件。
 
-Send Goods
+### Send Goods
 
     options = {
       :partner           => 'PID',
