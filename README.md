@@ -1,6 +1,6 @@
 # alipay_dualfun 双功能收款
 
-A ruby gem.
+A ruby gem: <http://rubygems.org/gems/alipay_dualfun>
 
 ## Demo
 
