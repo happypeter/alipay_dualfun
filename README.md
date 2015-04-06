@@ -1,12 +1,18 @@
-# alipay_dualfun 双功能收款
+# 项目宣布死亡
+
+因为支付宝的“双接口”服务现在已经下线了，所以这个 gem 也没有意义了。但是个人开发者依然可以使用“担保交易”，相应的 gem 可以采用 [chloerei/alipay](https://github.com/chloerei/alipay) 。
+
+
+
+### alipay_dualfun 双功能收款
 
 A ruby gem: <http://rubygems.org/gems/alipay_dualfun>
 
-## Demo
+### Demo
 
 http://alidemo.happycasts.net/
 
-## Install
+### Install
 
 Add this line to your application's Gemfile:
 
