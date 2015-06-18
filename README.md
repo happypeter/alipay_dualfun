@@ -8,9 +8,6 @@
 
 A ruby gem: <http://rubygems.org/gems/alipay_dualfun>
 
-### Demo
-
-http://alidemo.happycasts.net/
 
 ### Install
 
